@@ -1,129 +1,106 @@
+// Inventario oficial de repuestos - SportBike Racing Tuluá
 const productosData = [
-    // ==========================================
-    // 🚴 DOWNHILL / MTB / ENDURO
-    // ==========================================
+    // --- CATEGORÍA: DOWNHILL / MTB ---
     {
-        id: 1,
-        nombre: "Casco Integral Full-Face Pro DH",
-        categoria: "downhill",
-        precio: 450000,
-        imagen: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?q=80&w=600"
+        nombre: "Suspensión Delantera RockShox Boxxer 29",
+        precio: 4200000,
+        imagen: "suspension29.jpg",
+        categoria: "downhill"
     },
     {
-        id: 2,
-        nombre: "Coraza Maxxis Minion DHF 29x2.50 Tubeless",
-        categoria: "downhill",
-        precio: 240000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
+        nombre: "Frenos Hidráulicos Shimano Saint M820 (Par)",
+        precio: 1850000,
+        imagen: "frenosaint.jpg",
+        categoria: "downhill"
     },
     {
-        id: 3,
-        nombre: "Manubrio Truvativ Descendant DH 800mm",
-        categoria: "downhill",
-        precio: 195000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
+        nombre: "Llanta Maxxis Assegai 29x2.50 3C Downhill",
+        precio: 3400000,
+        imagen: "maxxis.jpg",
+        categoria: "downhill"
     },
     {
-        id: 4,
-        nombre: "Suspensión Fox 40 Factory Grip2 Downhill",
-        categoria: "downhill",
-        precio: 4850000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
-    },
-    {
-        id: 5,
-        nombre: "Pedales de Plataforma Crankbrothers Stamp 7",
-        categoria: "downhill",
-        precio: 390000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
+        nombre: "Manubrio Renthal Fatbar Carbon 35mm",
+        precio: 720000,
+        imagen: "renthal.jpg",
+        categoria: "downhill"
     },
 
-    // ==========================================
-    // 🚲 BMX STREET & DIRT
-    // ==========================================
+    // --- CATEGORÍA: BMX ---
     {
-        id: 6,
-        nombre: "Manzanas de Cassette Primo Remix V2 9T",
-        categoria: "bmx",
+        nombre: "Marco BMX Sunday Soundwave V3 21\"",
+        precio: 1950000,
+        imagen: "bmxsund.jpg",
+        categoria: "bmx"
+    },
+    {
+        nombre: "Bielas BMX Odyssey Thunderbolt RHD",
+        precio: 850000,
+        imagen: "bielas.jpg",
+        categoria: "bmx"
+    },
+    {
+        nombre: "Manzana Trasera Casera Odyssey Clutch V2",
+        precio: 680000,
+        imagen: "idyman.jpg",
+        categoria: "bmx"
+    },
+    {
+        nombre: "Pedales Odyssey Twisted PC",
+        precio: 120000,
+        imagen: "pedales.jpg",
+        categoria: "bmx"
+    },
+
+    // --- CATEGORÍA: RUTA ---
+    {
+        nombre: "Grupo Shimano Ultegra Di2 R8100 12v",
+        precio: 6500000,
+        imagen: "ultegra.jpg",
+        categoria: "ruta"
+    },
+    {
+        nombre: "Rines de Carbono Shimano C50 Ruta (Par)",
+        precio: 4800000,
+        imagen: "rines.jpg",
+        categoria: "ruta"
+    },
+    {
+        nombre: "Llanta Continental Grand Prix 5000 700x25c",
         precio: 320000,
-        imagen: "https://images.unsplash.com/photo-1582236523912-f04b2b73379b?q=80&w=600"
+        imagen: "grand.jpg",
+        categoria: "ruta"
     },
     {
-        id: 7,
-        nombre: "Timón BMX Odyssey Outer Space 9.5",
-        categoria: "bmx",
-        precio: 210000,
-        imagen: "https://images.unsplash.com/photo-1582236523912-f04b2b73379b?q=80&w=600"
-    },
-    {
-        id: 8,
-        nombre: "Plato BMX Clandestine 25T Aluminio CNC",
-        categoria: "bmx",
-        precio: 115000,
-        imagen: "https://images.unsplash.com/photo-1582236523912-f04b2b73379b?q=80&w=600"
-    },
-    {
-        id: 9,
-        nombre: "Marco BMX Sunday Soundwave V3 Chromoly",
-        categoria: "bmx",
-        precio: 1450000,
-        imagen: "https://images.unsplash.com/photo-1582236523912-f04b2b73379b?q=80&w=600"
-    },
-    {
-        id: 10,
-        nombre: "Rin Doble Pared Odyssey Hazard Lite 36H",
-        categoria: "bmx",
-        precio: 235000,
-        imagen: "https://images.unsplash.com/photo-1582236523912-f04b2b73379b?q=80&w=600"
+        nombre: "Sillín Prologo Dimension NDR Tirox",
+        precio: 450000,
+        imagen: "sillim.jpg",
+        categoria: "ruta"
     },
 
-    // ==========================================
-    // ⚡ RUTA / VELOCIDAD
-    // ==========================================
+    // --- CATEGORÍA: COMPONENTES / GENERAL ---
     {
-        id: 11,
-        nombre: "Coraza de Ruta Continental Grand Prix 5000",
-        categoria: "ruta",
-        precio: 285000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
+        nombre: "Cadena Shimano KMC X12 Oro/Negro",
+        precio: 180000,
+        imagen: "cadena.jpg",
+        categoria: "componentes"
     },
     {
-        id: 12,
-        nombre: "Pacha Shimano Ultegra R8000 11-30T",
-        categoria: "ruta",
-        precio: 360000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
+        nombre: "Pastillas de Freno Shimano Resina H03A",
+        precio: 950000,
+        imagen: "pastillas.jpg",
+        categoria: "componentes"
     },
     {
-        id: 13,
-        nombre: "Sillín Ruta Pro Stealth Antiprostático",
-        categoria: "ruta",
-        precio: 220000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
+        nombre: "Extractor de Cassette Park Tool FR-5.2",
+        precio: 65000,
+        imagen: "extra.jpg",
+        categoria: "componentes"
     },
     {
-        id: 14,
-        nombre: "Manubrio Integrado de Carbono Shimano PRO Vibe",
-        categoria: "ruta",
-        precio: 1100000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
-    },
-    {
-        id: 15,
-        nombre: "Ruedas de Carbono DT Swiss PRC 1400 Spline",
-        categoria: "ruta",
-        precio: 4900000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
-    },
-
-    // ==========================================
-    // ⚙️ COMPONENTES / GENERAL
-    // ==========================================
-    {
-        id: 16,
-        nombre: "Frenos Hidráulicos Shimano XT 4 Pistones",
-        categoria: "componentes",
-        precio: 380000,
-        imagen: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600"
+        nombre: "Líquido de Frenos Mineral Shimano 100ml",
+        precio: 35000,
+        imagen: "liqui.jpg",
+        categoria: "componentes"
     }
 ];
