@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Técnico Especializado | SportBike Racing Tuluá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { bikeBG: '#F8F8F6', bikeText: '#1A1A1A' }
+                }
+            }
+        }
+    </script>
+    <style>
+        .font-racing { font-style: italic; font-weight: 800; text-transform: uppercase; }
+        body { position: relative; z-index: 1; }
+        body::before {
+            content: ""; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 550px; height: 550px; background-image: url('logo_racing.png.png');
+            background-size: contain; background-repeat: no-repeat; background-position: center;
+            opacity: 0.04; z-index: -1; pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-bikeBG text-bikeText font-sans antialiased">
+
+    <div class="bg-bikeText text-white text-center py-2 text-xs font-medium tracking-wider uppercase">
+        🛠️ Recogemos tu bicicleta en la puerta de tu casa en Tuluá 🛠️
+    </div>
+
+    <header class="bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="logo_racing.png.png" alt="SportBike Logo" class="h-20 w-auto object-contain">
+                <div class="leading-none">
+                    <span class="font-racing text-3xl tracking-tight block text-black">SPORTBIKE</span>
+                    <span class="text-xs text-gray-500 font-bold uppercase tracking-widest block mt-1">RACING TULUÁ</span>
+                </div>
+            </div>
+            <nav class="hidden lg:flex space-x-6 text-xs font-bold uppercase tracking-wider text-gray-600">
+                <a href="index.html" class="hover:text-black transition-colors">INICIO</a>
+                <a href="tienda.html" class="hover:text-black transition-colors">COMPONENTES</a>
+                <a href="servicios.html" class="text-black border-b-2 border-bikeText pb-1">SERVICIOS</a>
+            </nav>
+            <div class="w-20 lg:block hidden"></div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <section class="lg:col-span-2 space-y-8">
+            <div class="text-left">
+                <h2 class="font-racing text-4xl text-black tracking-tight">Nuestros Mantenimientos</h2>
+                <p class="text-gray-500 text-xs mt-1 uppercase tracking-widest font-bold">Servicio especializado para competencia y uso diario</p>
+                <div class="w-20 h-1 bg-bikeText mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white border border-gray-200 rounded p-6 flex flex-col justify-between shadow-xs">
+                    <div>
+                        <h3 class="font-bold text-lg text-bikeText uppercase mb-2">Mantenimiento Preventivo</h3>
+                        <p class="text-gray-600 text-xs mb-4">Evita ruidos molestos y protege tus piezas de carrera.</p>
+                        <ul class="text-xs text-gray-700 space-y-2 font-medium">
+                            <li>✅ Lavado general detallado e inspección técnica.</li>
+                            <li>✅ Ajuste de frenos y calibración fina de cambios.</li>
+                            <li>✅ Lubricación de cadena y partes móviles.</li>
+                            <li>🚛 Recogida a domicilio incluida en Tuluá.</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 border-t pt-4">
+                        <span class="text-2xl font-extrabold text-bikeText block mb-3">$ 45.000 COP</span>
+                        <button onclick="seleccionarServicio('Preventivo')" class="w-full bg-bikeText hover:bg-black text-white text-xs font-bold py-2.5 rounded uppercase tracking-wider transition-colors">
+                            Seleccionar este Servicio
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white border-2 border-bikeText rounded p-6 flex flex-col justify-between relative shadow-xs">
+                    <div class="absolute -top-3 right-6 bg-bikeText text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded">Full Equipo</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-bikeText uppercase mb-2">Mantenimiento General Total</h3>
+                        <p class="text-gray-600 text-xs mb-4">Desarme integral al 100% para las máximas exigencias.</p>
+                        <ul class="text-xs text-gray-700 space-y-2 font-medium">
+                            <li>✅ Desarme y lavado químico completo del cuadro.</li>
+                            <li>✅ Engrasado premium de cajas (manzanas, centro, dirección).</li>
+                            <li>✅ Centrado de rines y tensión calibrada de radios.</li>
+                            <li>✅ Sincronización milimétrica y purgado de frenos.</li>
+                            <li>🚛 Recogida y entrega a domicilio gratis en Tuluá.</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 border-t pt-4">
+                        <span class="text-2xl font-extrabold text-bikeText block mb-3">$ 90.000 COP</span>
+                        <button onclick="seleccionarServicio('General Total (Incluye Todo)')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded uppercase tracking-wider transition-colors">
+                            Seleccionar este Servicio
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="w-full">
+            <div class="bg-white border border-gray-200 rounded p-6 shadow-md sticky top-24">
+                <h3 class="text-xs font-bold uppercase tracking-wider mb-4 border-b pb-2 text-gray-900 flex items-center gap-2">
+                    🛠️ Formulario de Recogida
+                </h3>
+                
+                <form id="form-agendamiento" onsubmit="procesarAgendamiento(event)" class="space-y-4 text-xs">
+                    <div>
+                        <label class="block font-bold text-gray-700 uppercase mb-1">Tu Nombre Completo</label>
+                        <input type="text" id="txt-nombre" required placeholder="Ej: Juan Pérez" class="w-full p-2.5 border rounded border-gray-300 focus:outline-none focus:border-black text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-gray-700 uppercase mb-1">Dirección o Barrio en Tuluá</label>
+                        <input type="text" id="txt-direccion" required placeholder="Ej: Barrio Alvernia, Calle 25 #..." class="w-full p-2.5 border rounded border-gray-300 focus:outline-none focus:border-black text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-gray-700 uppercase mb-1">Tu Bicicleta (Marca/Modalidad)</label>
+                        <input type="text" id="txt-bici" required placeholder="Ej: GW Downhill, Sunday BMX, Scott Ruta" class="w-full p-2.5 border rounded border-gray-300 focus:outline-none focus:border-black text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-gray-700 uppercase mb-1">Tipo de Mantenimiento</label>
+                        <select id="select-mantenimiento" required class="w-full p-2.5 border rounded border-gray-300 bg-gray-50 focus:outline-none focus:border-black text-sm font-medium">
+                            <option value="">-- Selecciona una opción --</option>
+                            <option value="Preventivo ($45.000)">Preventivo — $45.000</option>
+                            <option value="General Total ($90.000)">General Total (Incluye Todo) — $90.000</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full mt-2 bg-bikeText hover:bg-black text-white font-bold py-3 rounded text-xs uppercase tracking-widest transition-all shadow">
+                        🚀 Solicitar Recogida Domicilio
+                    </button>
+                </form>
+            </div>
+        </aside>
+
+    </main>
+
+   <script>
+        // PON TU NÚMERO REAL AQUÍ (Ej: "57" + tu celular sin espacios)
+        const tuNumeroCelular = "573126799074"; 
+
+        // Rellena automáticamente el menú desplegable al hacer clic en las tarjetas
+        function seleccionarServicio(tipo) {
+            const selector = document.getElementById('select-mantenimiento');
+            if (tipo === 'Preventivo') {
+                selector.value = "Preventivo ($45.000)";
+            } else {
+                selector.value = "General Total ($90.000)";
+            }
+            // Pone el cursor directo en el primer campo del formulario
+            document.getElementById('txt-nombre').focus();
+        }
+
+        // Función principal que compila el formulario y abre WhatsApp
+        function procesarAgendamiento(event) {
+            event.preventDefault(); // Evita que la página se recargue sola
+
+            const nombre = document.getElementById('txt-nombre').value.trim();
+            const direccion = document.getElementById('txt-direccion').value.trim();
+            const bici = document.getElementById('txt-bici').value.trim();
+            const servicio = document.getElementById('select-mantenimiento').value;
+
+            // Construcción estética del mensaje para tu WhatsApp
+            let mensajeWhatsApp = `¡Hola SportBike Racing Tuluá! 🛠️🚲\n\n`;
+            mensajeWhatsApp += `Quiero agendar un servicio técnico desde la web:\n\n`;
+            mensajeWhatsApp += `👤 *Cliente:* ${nombre}\n`;
+            mensajeWhatsApp += `🚛 *Dirección de Recogida:* ${direccion}\n`;
+            mensajeWhatsApp += `🚲 *Bici:* ${bici}\n`;
+            mensajeWhatsApp += `⚙️ *Servicio:* Mantenimiento ${servicio}\n\n`;
+            mensajeWhatsApp += `¿Me confirman qué día y a qué hora pueden pasar a recogerla? ¡Muchas gracias!`;
+
+            // Abre el enlace directo de la API de WhatsApp en otra pestaña
+            window.open(`https://api.whatsapp.com/send?phone=${tuNumeroCelular}&text=${encodeURIComponent(mensajeWhatsApp)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>

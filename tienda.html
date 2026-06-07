@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Componentes | SportBike Racing Tuluá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { bikeBG: '#F8F8F6', bikeText: '#1A1A1A' }
+                }
+            }
+        }
+    </script>
+    <style>
+        .font-racing { font-style: italic; font-weight: 800; text-transform: uppercase; }
+        body { position: relative; z-index: 1; }
+        body::before {
+            content: ""; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 550px; height: 550px; background-image: url('logo_racing.png.png');
+            background-size: contain; background-repeat: no-repeat; background-position: center;
+            opacity: 0.04; z-index: -1; pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-bikeBG text-bikeText font-sans antialiased">
+
+    <div class="bg-bikeText text-white text-center py-2 text-xs font-medium tracking-wider uppercase">
+        🚴 Envíos rápidos a todo el Valle desde Tuluá 🚴
+    </div>
+
+    <header class="bg-white shadow-sm sticky top-0 z-40 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="logo_racing.png.png" alt="SportBike Logo" class="h-20 w-auto object-contain">
+                <div class="leading-none">
+                    <span class="font-racing text-3xl tracking-tight block text-black">SPORTBIKE</span>
+                    <span class="text-xs text-gray-500 font-bold uppercase tracking-widest block mt-1">RACING TULUÁ</span>
+                </div>
+            </div>
+            <nav class="hidden lg:flex space-x-6 text-xs font-bold uppercase tracking-wider text-gray-600">
+                <a href="index.html" class="hover:text-black transition-colors">INICIO</a>
+                <a href="tienda.html" class="text-black border-b-2 border-bikeText pb-1">COMPONENTES</a>
+                <a href="servicios.html" class="hover:text-black transition-colors">SERVICIOS</a>
+            </nav>
+            <div class="flex items-center">
+                <button onclick="toggleCart()" class="flex items-center gap-2 text-gray-700 hover:text-black focus:outline-none">
+                    <span class="text-lg">🛒</span>
+                    <span class="text-xs font-bold uppercase tracking-wider">CARRITO (<span id="cart-badge" class="font-extrabold text-red-600">0</span>)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="text-center mb-10">
+            <h2 class="font-racing text-4xl text-black tracking-tight">Catálogo de Repuestos</h2>
+            <div class="w-16 h-1 bg-bikeText mx-auto mt-4"></div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <aside class="w-full lg:w-64 shrink-0">
+                <div class="bg-white p-5 rounded border border-gray-200">
+                    <h3 class="text-xs font-bold uppercase tracking-wider mb-3 border-b pb-2 text-gray-900">Modalidad</h3>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="chk-downhill" checked onchange="filtrarProductos()" class="rounded border-gray-300 text-bikeText focus:ring-0"> Downhill / MTB</label>
+                        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="chk-bmx" checked onchange="filtrarProductos()" class="rounded border-gray-300 text-bikeText focus:ring-0"> BMX Street & Dirt</label>
+                        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="chk-ruta" checked onchange="filtrarProductos()" class="rounded border-gray-300 text-bikeText focus:ring-0"> Ruta / Velocidad</label>
+                        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="chk-componentes" checked onchange="filtrarProductos()" class="rounded border-gray-300 text-bikeText focus:ring-0"> Componentes / General</label>
+                    </div>
+                </div>
+            </aside>
+            <section class="flex-1">
+                <div id="contenedor-productos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+            </section>
+        </div>
+    </main>
+
+    <div id="sidebar-cart" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-xs" onclick="toggleCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white flex flex-col shadow-2xl">
+                <div class="p-6 border-b border-gray-200 flex items-center justify-between bg-bikeText text-white">
+                    <h2 class="text-lg font-bold uppercase tracking-wider">Tu Carrito</h2>
+                    <button onclick="toggleCart()" class="text-gray-400 text-xl">✕</button>
+                </div>
+                <div class="flex-1 overflow-y-auto p-6 space-y-4" id="cart-items-container"></div>
+                <div class="p-6 border-t border-gray-200 bg-gray-50 space-y-4">
+                    <div class="flex justify-between text-base font-bold text-bikeText"><span>Total Pedido:</span><span id="cart-total-price">$ 0</span></div>
+                    <button onclick="enviarWhatsApp()" class="w-full bg-emerald-600 text-white font-bold py-3 rounded text-sm uppercase tracking-wider text-center">💬 Pedir por WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="productos.js"></script>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('sportbike_cart')) || [];
+        const tuNumeroCelular = "573001234567";
+
+        function toggleCart() { document.getElementById('sidebar-cart').classList.toggle('hidden'); }
+
+        function renderProductos(lista) {
+            const contenedor = document.getElementById('contenedor-productos');
+            contenedor.innerHTML = '';
+            lista.forEach(prod => {
+                contenedor.innerHTML += `
+                    <div class="bg-white rounded border border-gray-200 overflow-hidden flex flex-col justify-between">
+                        <div class="h-56 bg-gray-50 flex items-center justify-center p-6"><img src="${prod.imagen}" class="max-h-full object-contain mix-blend-multiply"></div>
+                        <div class="p-4 border-t flex-1 flex flex-col justify-between">
+                            <div><span class="text-[10px] font-bold text-emerald-600 uppercase font-mono">${prod.categoria}</span><h3 class="font-bold text-sm text-bikeText uppercase mt-1">${prod.nombre}</h3></div>
+                            <div class="mt-4"><span class="text-lg font-extrabold text-bikeText block">$ ${prod.precio.toLocaleString()} COP</span><button onclick="addToCart('${prod.nombre}', ${prod.precio}, '${prod.imagen}')" class="mt-3 w-full bg-bikeText text-white font-bold py-2.5 rounded text-xs uppercase">Añadir al Carrito</button></div>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        function filtrarProductos() {
+            const downhill = document.getElementById('chk-downhill').checked;
+            const bmx = document.getElementById('chk-bmx').checked;
+            const ruta = document.getElementById('chk-ruta').checked;
+            const componentes = document.getElementById('chk-componentes').checked;
+            const filtrados = productosData.filter(prod => {
+                if (prod.categoria === 'downhill' && downhill) return true;
+                if (prod.categoria === 'bmx' && bmx) return true;
+                if (prod.categoria === 'ruta' && ruta) return true;
+                if (prod.categoria === 'componentes' && componentes) return true;
+                return false;
+            });
+            renderProductos(filtrados);
+        }
+
+        function addToCart(name, price, image) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) { existingItem.quantity += 1; } else { cart.push({ name, price, image, quantity: 1 }); }
+            saveAndRefreshCart();
+        }
+
+        function removeFromCart(name) { cart = cart.filter(item => item.name !== name); saveAndRefreshCart(); }
+        function saveAndRefreshCart() { localStorage.setItem('sportbike_cart', JSON.stringify(cart)); updateCartUI(); }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-badge');
+            const totalElement = document.getElementById('cart-total-price');
+            let totalItems = 0; let totalPrice = 0; container.innerHTML = '';
+            if (cart.length === 0) { container.innerHTML = '<p class="text-gray-500 text-sm text-center py-8">El carrito está vacío.</p>'; } 
+            else {
+                cart.forEach(item => {
+                    totalItems += item.quantity; totalPrice += (item.price * item.quantity);
+                    container.innerHTML += `<div class="flex items-center justify-between border-b pb-4"><div class="flex items-center gap-4"><img src="${item.image}" class="w-12 h-12 object-contain bg-gray-50 p-1 rounded border"><div><h4 class="text-xs font-bold text-bikeText uppercase truncate max-w-[150px]">${item.name}</h4><p class="text-xs text-gray-500">$ ${item.price.toLocaleString()} x ${item.quantity}</p></div></div><button onclick="removeFromCart('${item.name}')" class="text-red-500 text-xs hover:underline">Quitar</button></div>`;
+                });
+            }
+            badge.innerText = totalItems; totalElement.innerText = `$ ${totalPrice.toLocaleString()} COP`;
+        }
+
+        function enviarWhatsApp() {
+            if (cart.length === 0) return;
+            let msg = "¡Hola SportBike Racing Tuluá! 👋 Quiero comprar:\n\n"; let total = 0;
+            cart.forEach((item, i) => { total += item.price * item.quantity; msg += `${i + 1}. 📦 *${item.name}* (Cant: ${item.quantity}) - $${(item.price * item.quantity).toLocaleString()} COP\n`; });
+            msg += `\n💰 *Total:* $${total.toLocaleString()} COP`;
+            window.open(`https://api.whatsapp.com/send?phone=${tuNumeroCelular}&text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        window.onload = function() { renderProductos(productosData); updateCartUI(); };
+    </script>
+</body>
+</html>
