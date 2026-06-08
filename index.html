@@ -33,8 +33,9 @@
         🚴 Componentes Premium y Taller de Carreras en Tuluá 🚴
     </div>
 
-  <header class="bg-white shadow-sm border-b border-gray-100">
+ <header class="bg-white shadow-sm border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        
         <div class="flex items-center">
             <img src="logo_racing.png" alt="SportBike Logo" class="h-16 w-auto">
         </div>
@@ -46,16 +47,16 @@
         </button>
 
         <nav id="menu-principal" class="hidden lg:flex space-x-6 text-xs font-bold uppercase text-gray-600">
-            <a href="index.html" class="text-black border-b-2 border-bikeText pb-1">INICIO</a>
-            <a href="tienda.html" class="hover:text-black transition-colors">COMPONENTES</a>
-            <a href="servicios.html" class="hover:text-black transition-colors">SERVICIOS</a>
+            <a href="index.html" class="hover:text-black">INICIO</a>
+            <a href="tienda.html" class="hover:text-black">COMPONENTES</a>
+            <a href="servicios.html" class="hover:text-black">SERVICIOS</a>
         </nav>
     </div>
 
     <div id="menu-movil" class="hidden lg:hidden flex flex-col p-4 bg-gray-50 border-t">
-        <a href="index.html" class="py-3 font-bold border-b">INICIO</a>
-        <a href="tienda.html" class="py-3 font-bold border-b">COMPONENTES</a>
-        <a href="servicios.html" class="py-3 font-bold border-b">SERVICIOS</a>
+        <a href="index.html" class="py-2 border-b">INICIO</a>
+        <a href="tienda.html" class="py-2 border-b">COMPONENTES</a>
+        <a href="servicios.html" class="py-2">SERVICIOS</a>
     </div>
 </header>
 
@@ -104,9 +105,7 @@
 <script>
     const btn = document.getElementById('btn-menu');
     const menuMovil = document.getElementById('menu-movil');
-    
     btn.addEventListener('click', () => {
-        // Esto busca la clase 'hidden' y la quita o la pone
         menuMovil.classList.toggle('hidden');
     });
 </script>
